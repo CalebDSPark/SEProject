@@ -74,7 +74,7 @@
                 <div class="icon">
                   <i class="fa fa-book"></i>
                 </div>
-                <a href="../vendor/vendor-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="../../manager/request/request.php?bag_invt=init&s_cate=1" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
               </div><!-- ./col -->
 
@@ -88,7 +88,7 @@
                   <div class="icon">
                     <i class="fa fa-laptop"></i>
                   </div>
-                  <a href="../invt_product/invt_p-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="../../manager/request/request.php?bag_invt=init&s_cate=2" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div><!-- ./col -->    
 
@@ -102,7 +102,7 @@
                   <div class="icon">
                     <i class="fa fa-youtube-play"></i>
                   </div>
-                  <a href="../purchase/purchase-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="../../manager/request/request.php?bag_invt=init&s_cate=3" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div><!-- ./col -->                         
 
@@ -110,43 +110,17 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                   <div class="inner">
-                    <h3>Study Room</h3>
-                    <p>1st Floor</p>
-                  </div>
-                  <div class="icon">
-                    <i class="fa fa-pencil-square-o"></i>
-                  </div>
-                  <a href="../delivery/delivery-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-              </div><!-- ./col -->
-
-              <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-purple">
-                  <div class="inner">
-                    <h3>Study Room</h3>
-                    <p>2nd Floor</p>
-                  </div>
-                  <div class="icon">
-                    <i class="fa fa-pencil-square-o"></i>
-                  </div>
-                  <a href="../sales/sales-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-              </div><!-- ./col -->
-
-               <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-teal">
-                  <div class="inner">
                     <h3>Location</h3>
                     <p>Location info</p>
                   </div>
                   <div class="icon">
                     <i class="fa fa-subway"></i>
                   </div>
-                  <a href="../customer/customer-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="../delivery/delivery-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div><!-- ./col -->
+
+             
 
             </div><!-- /.row -->
 

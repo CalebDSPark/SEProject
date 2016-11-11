@@ -31,22 +31,12 @@
 
       function DoSelect(frm)
       {                        
-        //var cate   = $("#s_cate option:selected").val();     
-        //var genre  = $("#s_genre option:selected").val();     
-        var status = $("#s_req_status option:selected").val();           
-        location.href="msgborrow.php?s_req_status="+status;
+        var cate   = $("#s_cate option:selected").val();     
+        var genre  = $("#s_genre option:selected").val();     
+        var status = $("#s_status option:selected").val();           
+        location.href="myinfo_history.php?s_cate="+cate+"&s_genre="+genre+"&s_status="+status;
       }
 
-
-      function DoReturn(frm)      
-      {        
-        var yn = confirm("Do you want to allow this return?");            
-        if(!yn) return;
-
-        var invt_id = frm.id;      
-       
-        location.href="msgborrow_return.php?p_re_invt_id="+invt_id;
-      }
     
 
     </script>  
@@ -65,11 +55,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Management 
-            <small>Return</small>
+            Timetable
+            <small></small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="../main/main.php"><i class="fa fa-dashboard"></i> Home</a></li>     <li class="active">Management Return</li>
+            <li><a href="../main/main.php"><i class="fa fa-dashboard"></i> Home</a></li>     <li class="active">Reading History</li>
           </ol>
         </section>
 
@@ -77,38 +67,9 @@
         <section class="content">
           <div class="row">
 
-            <div class="col-xs-12">              
-            <div class="box box-primary">
-
-                <!-- form start -->
-                <!--form role="form" name="formp" method="get" action="booKs.php"-->
-                  <div class="box-body">                    
-                    <div class="row">
-                      <div class="col-md-6">                      
-                        <div class="form-group">
-                          <label>Request Status</label>
-                          <div class="input-group">
-                            <div class="input-group-addon">
-                              <i class="fa fa-clone"></i>
-                            </div>
-                            <select class="form-control" name="s_req_status" id="s_req_status" onchange="DoSelect(this)">
-                            {{T_SELECT_REQ_STATUS}}
-                            </select>  
-                          </div><!-- /.input group -->
-                        </div><!-- /.form group -->  
-                      </div><!-- /.col -->
-                    </div><!-- /.row --> 
-                  </div><!-- /.box-body -->
-
-                  <!--div class="box-footer" align="center">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                  </div-->
-                <!--/form-->
-              </div><!-- /.box -->
-             </div>
-
+          
             <div class="col-xs-12">
-            <div class="box">
+            <div class="box box-primary">
                 <div class="box-header">
                   <h3 class="box-title">{{T_TITLE}}</h3>
                 </div><!-- /.box-header -->
@@ -116,31 +77,19 @@
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
                       <tr>  
-                      <th></th>  
-                      <th>Due Date</th>                        
-                      <th>Title</th>                        
-                      <th>Code</th>
-                      <th>Category</th>                      
-                      <th>Member ID</th>                    
-					            <th>FNAME</th>                  
-                      <th>LNAME</th>       
-                      <th>Status</th>                  
-                      <th>Overdue Fee ($1/day)</th>                  
+                      <th>Days / Time</th>
+                      <th>Open Time</th>                    
+					            <th>Close Time</th>
+                      <th>Memo</th>                      
                       </tr>
                     </thead>
                     <tbody>
 <!-- LOOP START 'LP' -->
                       <tr>     
-                      <td>{{LP.T_BTN}}</td>                          
-                      <td>{{LP.T_DUE_DATE}}</td>     
-                      <td>{{LP.T_TITLE}}</td>     
-                      <td>{{LP.T_CODE}}</td>     
-                      <td>{{LP.T_CATE}}</td>                           
-                      <td>{{LP.T_MEMBER_ID}}</td>                
-                      <td>{{LP.T_FNAME}}</td>
-                      <td>{{LP.T_LNAME}}</td>
-                      <td>{{LP.T_STATUS}}</td> 
-                      <td>$ {{LP.T_OVERDUE_FEE}}</td>                                      
+                      <td>{{LP.T_DAY}}</td>
+                      <td>{{LP.T_OPEN_TIME}}</td>                
+                      <td>{{LP.T_CLOSE_TIME}}</td>
+                      <td>{{LP.T_MEMO}}</td>                      
                       </tr>
 <!-- LOOP END 'LP' -->
 
@@ -190,11 +139,11 @@
       $(function () {
         $("#example1").DataTable();
         $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": true,
-          "searching": true,
+          "paging": false,
+          "lengthChange": false,
+          "searching": false,
           "ordering": false,
-          "info": true,
+          "info": false,
           "autoWidth": false
         });
       });

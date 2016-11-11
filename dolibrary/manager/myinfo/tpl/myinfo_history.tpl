@@ -142,14 +142,14 @@
                     <thead>
                       <tr>  
                       <th>Request Date</th>
+                      <th>Due Date</th>                    
                       <th>Return Date</th>                    
 					            <th>Code</th>
                       <th>Title</th>
                       <th>Author</th>
                       <th>Category</th>
                       <th>Genre</th>					            
-                      <th>INVT ID</th>    
-                      <th>Status</th>                  
+                      <th>INVT ID</th>                          
                       </tr>
                     </thead>
                     <tbody>
@@ -157,13 +157,13 @@
                       <tr>     
                       <td>{{LP.T_ORDER_DATE}}</td>
                       <td>{{LP.T_DUE_DATE}}</td>                
+                      <td>{{LP.T_RETURN_DATE}}</td>                
                       <td>{{LP.T_CODE}}</td>
                       <td>{{LP.T_TITLE}}</td>
                       <td>{{LP.T_AUTHOR}}</td>
                       <td>{{LP.T_CATE}}</td>
                       <td>{{LP.T_GENRE}}</td>
-					            <td>{{LP.T_INVT_ID}}</td>
-                      <td>{{LP.T_STATUS}}</td>                      
+					            <td>{{LP.T_INVT_ID}}</td>                      
                       </tr>
 <!-- LOOP END 'LP' -->
 

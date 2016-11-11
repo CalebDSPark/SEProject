@@ -42,7 +42,7 @@ CREATE TABLE `tbl_books` (
 
 LOCK TABLES `tbl_books` WRITE;
 /*!40000 ALTER TABLE `tbl_books` DISABLE KEYS */;
-INSERT INTO `tbl_books` VALUES (000001,'1111','Java','Park',0001,0001,'',1),(000002,'2222','C#','Kim',0002,0002,'',1),(000003,'3333','Android','Lee',0003,0001,'',1),(000004,'43-3434','Software Engineering','Park',0001,0003,'',1),(000005,'111222','C++','Choi',0002,0004,'',1),(000006,'121-12122','Javascript','John',0001,0005,'',1),(000007,'343-3434','PHP','David',0003,0006,'',1),(000008,'77777','Json','Park',0001,0001,'',3),(000009,'211-323','MySQL','Mark',0003,0002,'',1),(000014,'353-5355','AJAX','Park',0001,0004,'dfd',3);
+INSERT INTO `tbl_books` VALUES (000001,'1111','Java','Park',0001,0001,'',1),(000002,'2222','C#','Kim',0002,0002,'',3),(000003,'3333','Android','Lee',0003,0001,'',1),(000004,'43-3434','Software Engineering','Park',0001,0003,'',1),(000005,'111222','C++','Choi',0002,0004,'',1),(000006,'121-12122','Javascript','John',0001,0005,'',1),(000007,'343-3434','PHP','David',0003,0006,'',1),(000008,'77777','Json','Park',0001,0001,'',1),(000009,'211-323','MySQL','Mark',0003,0002,'',1),(000014,'353-5355','AJAX','Park',0001,0004,'dfd',1);
 /*!40000 ALTER TABLE `tbl_books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `tbl_borrow` (
 
 LOCK TABLES `tbl_borrow` WRITE;
 /*!40000 ALTER TABLE `tbl_borrow` DISABLE KEYS */;
-INSERT INTO `tbl_borrow` VALUES (000001,'2016-10-16','staff1',1),(000002,'2016-10-16','staff1',1),(000003,'2016-10-17','user1',1),(000004,'2016-10-17','staff1',1),(000005,'2016-10-22','staff2',1),(000006,'2016-10-22','user2',1);
+INSERT INTO `tbl_borrow` VALUES (000001,'2016-10-16','staff1',1),(000002,'2016-10-16','staff1',1),(000003,'2016-10-17','user1',1),(000004,'2016-10-17','staff1',1),(000005,'2016-10-22','staff2',1),(000006,'2016-10-22','user2',1),(000007,'2016-11-10','staff1',1),(000008,'2016-11-10','staff2',1),(000009,'2016-11-10','user2',1);
 /*!40000 ALTER TABLE `tbl_borrow` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,6 +105,7 @@ DROP TABLE IF EXISTS `tbl_borrow_detail`;
 CREATE TABLE `tbl_borrow_detail` (
   `BO_ID` int(6) unsigned zerofill NOT NULL,
   `INVT_ID` int(6) unsigned zerofill NOT NULL,
+  `REQ_DATE` date DEFAULT NULL,
   `DUE_DATE` date DEFAULT NULL,
   `RETURN_DATE` date DEFAULT NULL,
   PRIMARY KEY (`BO_ID`,`INVT_ID`),
@@ -119,34 +120,8 @@ CREATE TABLE `tbl_borrow_detail` (
 
 LOCK TABLES `tbl_borrow_detail` WRITE;
 /*!40000 ALTER TABLE `tbl_borrow_detail` DISABLE KEYS */;
-INSERT INTO `tbl_borrow_detail` VALUES (000001,000006,'2016-10-19','2016-10-22'),(000001,000007,'2016-10-19','2016-10-22'),(000002,000002,'2016-10-19','2016-10-22'),(000002,000005,'2016-10-19','2016-10-22'),(000003,000003,'2016-10-20','2016-10-22'),(000004,000001,'2016-10-20','2016-10-22'),(000005,000008,'2016-10-27','0000-00-00'),(000005,000014,'2016-10-27','0000-00-00'),(000006,000003,'2016-10-25','2016-10-22');
+INSERT INTO `tbl_borrow_detail` VALUES (000001,000006,'2016-10-16','2016-10-19','2016-10-22'),(000001,000007,'2016-10-16','2016-10-19','2016-11-10'),(000002,000002,'2016-10-16','2016-10-19','2016-11-10'),(000002,000005,'2016-10-16','2016-10-19','2016-11-10'),(000003,000003,'2016-10-17','2016-10-20','2016-10-22'),(000004,000001,'2016-10-17','2016-10-20','2016-10-22'),(000005,000008,'2016-10-22','2016-10-27','2016-10-23'),(000005,000014,'2016-10-22','2016-10-27','2016-10-23'),(000006,000003,'2016-10-20','2016-10-25','2016-10-22'),(000007,000002,'2016-11-10','2016-11-15','2016-11-10'),(000008,000001,'2016-11-10','2016-11-15','2016-11-10'),(000009,000002,'2016-11-10','2016-11-13',NULL),(000009,000003,'2016-11-10','2016-11-13','2016-11-10');
 /*!40000 ALTER TABLE `tbl_borrow_detail` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tbl_category`
---
-
-DROP TABLE IF EXISTS `tbl_category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbl_category` (
-  `CATE_ID` int(4) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) NOT NULL,
-  `STATUS` int(1) DEFAULT NULL,
-  `DESCR` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`CATE_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tbl_category`
---
-
-LOCK TABLES `tbl_category` WRITE;
-/*!40000 ALTER TABLE `tbl_category` DISABLE KEYS */;
-INSERT INTO `tbl_category` VALUES (0001,'Vegetable',1,NULL),(0002,'Fruit',1,NULL),(0003,'Beverage',1,NULL),(0004,'Grocery',1,NULL),(0005,'Sanack',1,NULL),(0007,'Deli(델리)',0,'de(델리설명)'),(0008,'Catering',1,'catering set menu');
-/*!40000 ALTER TABLE `tbl_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -198,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-22 14:26:02
+-- Dump completed on 2016-11-10 17:47:22

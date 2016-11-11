@@ -66,6 +66,7 @@
 
                 $d_order_date       = $row['ORDER_DATE'];
                 $d_due_date         = $row['DUE_DATE'];
+                $d_return_date      = $row['RETURN_DATE'];
                 $d_invt_id          = $row['INVT_ID'];
                 $d_code             = $row['CODE'];
 				$d_title            = $row['TITLE'];                
@@ -82,6 +83,7 @@
                 
                 
                 $loop[$i] = array('T_ORDER_DATE' => $d_order_date,'T_DUE_DATE' => $d_due_date,
+                    'T_RETURN_DATE' => $d_return_date,
                     'T_INVT_ID' => $d_invt_id, 'T_CODE' => $d_code, 'T_TITLE' => $d_title, 
                     'T_AUTHOR' => $d_author, 'T_CATE' => $d_cate,
                     'T_GENRE' => $d_genre,'T_STATUS'=>$d_status);

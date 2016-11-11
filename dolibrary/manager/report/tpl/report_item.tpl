@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hana Foods Inc</title>
+    <title>DO Library</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -38,24 +38,23 @@
     <script type="text/javascript">
       function DoSelect(frm)
       {                        
-        var dept        = $("#s_dept option:selected").val();    
-        var cust        = $("#s_cust option:selected").val();                
-        var invt_pay    = $("#s_pay_status option:selected").val();                  
+        var cate        = $("#s_cate option:selected").val();    
+        var genre       = $("#s_genre option:selected").val();            
         var daterange   = $("#daterange_hid").val();
         var type        = $("#date_picker_hid").val();
         //alert(type);        
 
-        location.href='report_sales.php?s_dept='+dept+'&s_cust='+cust+'&s_pay_status='+invt_pay+
+        location.href='report_item.php?s_genre='+genre+'&s_cate='+cate+
                       '&p_daterange='+ daterange + '&p_datetype=' + type;
       }
 
       function SetDateRange(daterange, type)
       {
           //alert(daterange);
-          var dept        = $("#s_dept option:selected").val();    
-          var cust        = $("#s_cust option:selected").val();      
-          var invt_pay    = $("#s_pay_status option:selected").val();                  
-          location.href='report_sales.php?s_dept='+dept+'&s_cust='+cust+'&s_pay_status='+invt_pay+
+          var cate        = $("#s_cate option:selected").val();    
+          var genre       = $("#s_genre option:selected").val();            
+          
+          location.href='report_item.php?s_genre='+genre+'&s_cate='+cate+
                         '&p_daterange='+ daterange + '&p_datetype=' + type;
       }
     </script>
@@ -74,11 +73,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Sales
+            Borrow Items
             <small>Report</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="../main/main.php"><i class="fa fa-dashboard"></i> Home</a></li>     <li class="active">Sales Report</li>
+            <li><a href="../main/main.php"><i class="fa fa-dashboard"></i> Home</a></li>     <li class="active">Borrow Book Report</li>
           </ol>
         </section>
 
@@ -90,56 +89,42 @@
             <div class="box box-primary">
 
                 <!-- form start -->
-                <!--form role="form" name="formp" method="get" action="report_sales.php"-->
+                <!--form role="form" name="formp" method="get" action="report_sales_item.php"-->
                   <div class="box-body">  
                     <!--div class="form-group">
                       <label >Purchase Order Number</label>
                       <input type="text" name="s_poid" class="form-control" id="s_poid" placeholder="Enter Puchase Order Number">
                     </div-->  
 
-                    <div class="row">                     
-                      <div class="col-md-3">                      
+                    <div class="row">    
+                      <div class="col-md-4">                      
                         <div class="form-group">
-                          <label>Department</label>
+                          <label>Category</label>
+                          <div class="input-group">
+                            <div class="input-group-addon">
+                              <i class="fa fa-database"></i>
+                            </div>                           
+                            <select class="form-control" name="s_cate" id="s_cate" onchange="DoSelect(this)">
+                              {{T_SELECT_CATE}}
+                            </select>
+                          </div><!-- /.input group -->
+                        </div><!-- /.form group -->  
+                      </div><!-- /.col -->                  
+                      <div class="col-md-4">                      
+                        <div class="form-group">
+                          <label>Genre</label>
                           <div class="input-group">
                             <div class="input-group-addon">
                               <i class="fa fa-sitemap"></i>
                             </div>
                             <!--input type="text" class="form-control pull-right" id="invt_status" name="invt_status" value="{{T_INVT_STATUS}}"-->
-                            <select class="form-control" name="s_dept" id="s_dept" onchange="DoSelect(this)">
-                              {{T_SELECT_DEPT}}
+                            <select class="form-control" name="s_genre" id="s_genre" onchange="DoSelect(this)">
+                              {{T_SELECT_GENRE}}
                             </select>
                           </div><!-- /.input group -->
                         </div><!-- /.form group -->  
-                      </div><!-- /.col --> 
-                      <div class="col-md-3">                      
-                        <div class="form-group">
-                          <label>Customer</label>
-                          <div class="input-group">
-                            <div class="input-group-addon">
-                              <i class="fa fa-users"></i>
-                            </div>                            
-                            <select class="form-control" name="s_cust" id="s_cust" onchange="DoSelect(this)">
-                              {{T_SELECT_CUST}}
-                            </select>
-                          </div><!-- /.input group -->
-                        </div><!-- /.form group -->  
-                      </div><!-- /.col -->                                 
-                      <div class="col-md-3">                      
-                        <div class="form-group">
-                          <label>Payment Status</label>
-                          <div class="input-group">
-                            <div class="input-group-addon">
-                              <i class="fa fa-dollar"></i>
-                            </div>
-                            <!--input type="text" class="form-control pull-right" id="pay_status" name="pay_status" value="{{T_PAY_STATUS}}"-->
-                            <select class="form-control" name="s_pay_status" id="s_pay_status" onchange="DoSelect(this)">
-                              {{T_SELECT_PAY_STATUS}}
-                            </select>
-                          </div><!-- /.input group -->
-                        </div><!-- /.form group -->  
-                      </div><!-- /.col -->  
-                      <div class="col-md-3">                      
+                      </div><!-- /.col -->                       
+                      <div class="col-md-4">                      
                         <div class="form-group">
                           <label>Date range:</label>
                           <div class="input-group">                            
@@ -190,7 +175,7 @@
               <div class="box box-success">
                 <div class="box-header with-border">
 
-                  <h3 class="box-title">Sales($)</h3>
+                  <h3 class="box-title">Qty</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>                 
@@ -200,7 +185,7 @@
                 <div class="box-body">
                   <div class="chart">
                     <canvas id="barChart" style="height:250px"></canvas>
-                    <h4 class="box-title" align="right"><i class="fa fa-calendar"></i> {{T_DATE_UNIT}}</h>
+                    <h4 class="box-title" align="right"><i class="ion ion-bag"></i> {{T_DATE_UNIT}}</h>
                   </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -236,30 +221,26 @@
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
                       <tr>                      
-                      <th>Date</th>                                           
-                      <th>Subtotal</th>
-                      <th>GST ({{T_TAX_GST}}%)</th>
-                      <th>PST ({{T_TAX_PST}}%)</th>
-                      <th>Total</th>                      
+                      <th>TITLE</th>                                           
+                      <th>Borrowed Count</th>
+                      <th>Author</th>
+                      <th>Category</th>                      
+                      <th>Genre</th>
+                      <th>Code</th>
                       </tr>
                     </thead>
                     <tbody>
 <!-- LOOP START 'LP' -->
                       <tr>                                            
-                      <td>{{LP.T_ORDER_DATE}}</td>                                     
-                      <td>$ {{LP.T_SUBTOTAL}}</td>
-                      <td>$ {{LP.T_GST}}</td>
-                      <td>$ {{LP.T_PST}}</td>                      
-                      <td>$ {{LP.T_TOTAL}}</td>                      
+                      <td>{{LP.T_TITLE}}</td>                                    
+                      <td>{{LP.T_QTY}}</td>                      
+                      <td>{{LP.T_AUTHOR}}</td>                      
+                      <td>{{LP.T_CATE}}</td>                      
+                      <td>{{LP.T_GENRE}}</td>                      
+                      <td>{{LP.T_CODE}}</td>                      
                       </tr>
 <!-- LOOP END 'LP' -->                      
-                      <tr>                                            
-                      <td><strong>Grand Total</strong></td>                                        
-                      <td><strong>$ {{T_G_SUBTOTAL}}</strong></td>
-                      <td><strong>$ {{T_G_GST}}</strong></td>
-                      <td><strong>$ {{T_G_PST}}</strong></td>                      
-                      <td><strong>$ {{T_G_TOTAL}}</strong></td>                      
-                      </tr>
+                    
                     </tbody>
                   </table>                    
                 </div><!-- /.box-body -->

@@ -73,7 +73,7 @@
               </a>
               <ul class="treeview-menu">
                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Location</a></li>
-                <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Hours</a></li>             
+                <li class="active"><a href="../../manager/contact/timetable.php"><i class="fa fa-circle-o"></i>Hours</a></li>             
               </ul>           
 
 
@@ -128,7 +128,7 @@
                 <!--span class="label label-primary pull-right">4</span-->
               </a>
               <ul class="treeview-menu">                        
-                <li  class="active"><a href="#"><i class="fa fa-circle-o"></i>Book Report</a></li>
+                <li  class="active"><a href="../../manager/report/report_item.php"><i class="fa fa-circle-o"></i>Book Report</a></li>
               </ul>              
             </li>          
         

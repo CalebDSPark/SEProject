@@ -6,7 +6,7 @@
     $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'] . "/dolibrary";
 
     include("$DOCUMENT_ROOT/include/SESSION.php3");
-    include("$DOCUMENT_ROOT/include/auth_E.php3");
+    include("$DOCUMENT_ROOT/include/auth_staff.php3");
     include("$DOCUMENT_ROOT/include/dbconn.php3");    
     include("$DOCUMENT_ROOT/include/func_return.php3");
     include("$DOCUMENT_ROOT/include/class.BearTemplate.php");
@@ -19,7 +19,7 @@
     
     $p_boid             = $_GET['p_boid'];  
     
-    $q_where            = "WHERE BD.BO_ID = '$p_boid'";    
+    $q_where            = "WHERE AND BD.BO_ID = '$p_boid'";    
     //$s_status             = $_GET['s_status'];  
     
     

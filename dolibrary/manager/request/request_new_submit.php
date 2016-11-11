@@ -94,8 +94,8 @@
             $bag_invt_id          = $row['INVT_ID'];                                                    
 
             
-            $query2 = "INSERT INTO tbl_borrow_detail(BO_ID, INVT_ID, DUE_DATE)  
-                       VALUES('$p_boid','$bag_invt_id', '$due_date')";             
+            $query2 = "INSERT INTO tbl_borrow_detail(BO_ID, INVT_ID, REQ_DATE, DUE_DATE)  
+                       VALUES('$p_boid','$bag_invt_id', '$date','$due_date')";             
             $result2 = mysqli_query($g_db_conn, $query2);                    
 
             // update books status 
