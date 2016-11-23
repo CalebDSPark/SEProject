@@ -19,7 +19,7 @@
     
     $p_boid             = $_GET['p_boid'];  
     
-    $q_where            = "WHERE AND BD.BO_ID = '$p_boid'";    
+    $q_where            = "WHERE BD.BO_ID = '$p_boid'";    
     //$s_status             = $_GET['s_status'];  
     
     

@@ -116,7 +116,7 @@
                   <div class="icon">
                     <i class="fa fa-subway"></i>
                   </div>
-                  <a href="../delivery/delivery-.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="../../manager/contact/location.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div><!-- ./col -->
 

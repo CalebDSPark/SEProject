@@ -35,6 +35,12 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+     <!-- Bootstrap -->
+    <link href="../../dist2/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">       
+    <!-- Datatables -->
+    <link href="../../dist2/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">    
+
+
     <script type="text/javascript">
       function DoSelect(frm)
       {                        
@@ -218,7 +224,7 @@
                   <h3 class="box-title"><i class="fa fa-table"></i> Date: {{T_DATERANGE}}</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table id="example2" class="table table-bordered table-striped">
+                  <table id="datatable_btn" class="table table-bordered table-striped">
                     <thead>
                       <tr>                      
                       <th>TITLE</th>                                           
@@ -526,5 +532,59 @@
         });
       });
     </script>
+
+
+     <!-- Datatable (export button) -->  
+    <script src="../../dist2/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../dist2/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../../dist2/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../dist2/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../dist2/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../dist2/jszip/dist/jszip.min.js"></script>    
+
+    <script>
+      // lBfrtip
+      $(document).ready(function() {
+        var handleDataTableButtons = function() {
+          if ($("#datatable_btn").length) {
+            $("#datatable_btn").DataTable({
+               //"lengthMenu": [ 10, 25, 50, 75, 100 ],  
+                 //"lengthMenu": [ 10, 25, 50, 75, 100 ],   
+               "ordering": false,    
+               "paging": false,             
+               dom: "Brtp",
+               buttons: [                         
+                {
+                  extend: "csv",
+                  className: "btn-sm",
+                  title: 'report_dolibrary'
+                },
+                {
+                  extend: "excel",
+                  className: "btn-sm btn-success",
+                  title: 'report_dolibrary'
+                },            
+                {
+                  extend: "print",
+                  className: "btn-sm"
+                },             
+              ],              
+
+              responsive: true
+            });
+          }
+        };
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();      
+        TableManageButtons.init();
+      });
+    </script>    
+
   </body>
 </html>
